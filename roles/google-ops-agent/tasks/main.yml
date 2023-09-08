@@ -1,0 +1,13 @@
+- name: Download google-cloud-ops-agent-repo.sh
+  get_url:
+    url: https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh
+    dest: /tmp/add-google-cloud-ops-agent-repo.sh
+    mode: '0755'
+  tags: install
+
+- name: Run add-google-cloud-ops-agent-repo.sh
+  shell: sudo /tmp/add-google-cloud-ops-agent-repo.sh --also-install
+  args:
+    executable: /bin/bash
+  notify: restart-ops-agent
+  tags: install

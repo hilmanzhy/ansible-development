@@ -1,0 +1,4 @@
+- name: restart-ops-agent
+  service:
+    name: google-cloud-ops-agent
+    state: restarted
